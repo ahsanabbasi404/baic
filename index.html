@@ -404,6 +404,10 @@
         <div class="section-3-content">
         </div>
     </section>
+    <section class="map">
+        <div class="map-content">
+        </div>
+    </section>
 
     <!-- Section 3 Capital Beauty Redefined -->
  
@@ -454,6 +458,30 @@
             .then(data => {
                 document.querySelector('.section-3-content').innerHTML = data;
             })
+    //         fetch('map.html')
+    // .then(response => response.text())
+    // .then(data => {
+    //     // Insert the HTML into the DOM
+    //     document.querySelector('.map-content').innerHTML = data;
+
+    //     // Extract and execute scripts
+    //     const scriptElements = document.querySelector('.map-content').querySelectorAll('script');
+    //     scriptElements.forEach(script => {
+    //         const newScript = document.createElement('script');
+    //         if (script.src) {
+    //             // If the script has a src attribute, load it
+    //             newScript.src = script.src;
+    //         } else {
+    //             // If it's inline script, execute it directly
+    //             newScript.textContent = script.textContent;
+    //         }
+    //         document.body.appendChild(newScript);
+    //     });
+    // })
+    // .catch(error => {
+    //     console.error('Error fetching explore-section.html:', error);
+    // });        // fetch cap-section.html
+
 
     </script>
 
