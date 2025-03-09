@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BAIC Capital Beauty</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+        }
+        
+        /* Hero section styles */
+        .hero-section {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            background-color: #f2f3f5;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            width: 50%;
+            padding-left: 8%;
+            z-index: 2;
+        }
+        
+        .hero-title {
+            font-size: 54px;
+            font-weight: 800;
+            line-height: 1.1;
+            color: #222;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        
+        .hero-subtitle {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .hero-description {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 30px;
+            max-width: 80%;
+        }
+        
+        .hero-image-container {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        
+        /* For where the image will be placed */
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 1024px) {
+            .hero-content {
+                width: 60%;
+            }
+            
+            .hero-title {
+                font-size: 48px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-content {
+                width: 90%;
+                padding: 0 5%;
+                text-align: center;
+            }
+            
+            .hero-title {
+                font-size: 36px;
+            }
+            
+            .hero-description {
+                max-width: 100%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 32px;
+            }
+            
+            .hero-subtitle, .hero-description {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">Capital Beauty<br>Redefined</h1>
+            <p class="hero-subtitle">Creating a joyful lifestyle for users</p>
+            <p class="hero-description">It is BAIC's persistent pursuit</p>
+        </div>
+        <div class="hero-image-container">
+            <!-- The image will be placed by you as mentioned -->
+            <img src="images/hd/capital.jpg" alt="BAIC Car with cityscape" class="hero-image">
+        </div>
+    </section>
+</body>
+</html>

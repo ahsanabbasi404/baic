@@ -1,0 +1,25 @@
+  .slide:nth-child(1) .slide-image {
+            /* images are in images folder */
+            background-image: url('/images/Sliders/slider1.webp');
+            animation-delay: 0s;
+        }
+
+        .slide:nth-child(2) .slide-image {
+            background-image: url('/images/Slider/slider2.webp');
+            animation-delay: -5s;
+        }
+
+        .slide:nth-child(3) .slide-image {
+            background-image: url('/images/Sliders/slider3.webp');
+            animation-delay: -10s;
+        }
+
+        .slide:nth-child(4) .slide-image {
+            background-image: url('/images/Sliders/slider4.jpg');
+            animation-delay: -15s;
+        }
+
+        .slide:nth-child(5) .slide-image {
+            background-image: url('/images/Sliders/slider5.webp');
+            animation-delay: -20s;
+        }

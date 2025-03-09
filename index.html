@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BAIC Car Showcase</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+            background-color: #000;
+            color: #fff;
+        }
+
+        /* Slider container */
+        .slider-container {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        /* Slides */
+        .slides {
+            width: 500%;
+            /* 100% * number of slides (5) */
+            height: 100%;
+            display: flex;
+            position: relative;
+            animation: slideAnimation 25s infinite;
+            /* 5s per slide * 5 slides */
+        }
+
+        .slide {
+            width: 20%;
+            /* 100% / number of slides (5) */
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            animation: zoomIn 5s ease-in-out infinite;
+        }
+
+        .model-text {
+            width: 100%;
+            max-width: 400px;
+        }
+
+        /* Individual slide backgrounds */
+        .slide:nth-child(1) .slide-image {
+            /* images are in images folder */
+            background-image: url('images/Sliders/slider1.webp');
+            animation-delay: 0s;
+        }
+
+        .slide:nth-child(2) .slide-image {
+            background-image: url('images/Sliders/slider3.webp');
+            /* Fixed path */
+            animation-delay: 5s;
+        }
+
+        .slide:nth-child(3) .slide-image {
+            background-image: url('images/Sliders/slider2.webp');
+            animation-delay: 10s;
+        }
+
+        .slide:nth-child(4) .slide-image {
+            background-image: url('images/Sliders/slider4.webp');
+            animation-delay: 15s;
+        }
+
+        .slide:nth-child(5) .slide-image {
+            background-image: url('images/Sliders/slider5.webp');
+            animation-delay: 20s;
+        }
+
+        
+
+
+        /* Slide content */
+        .slide-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 10%;
+        }
+
+        /* Slide 1 - XS5 II */
+        .slide:nth-child(1) .slide-content {
+            align-items: flex-start;
+            justify-content: center;
+            padding-left: 80px;
+        }
+
+        .slide:nth-child(1) .model-name {
+            font-size: 120px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .slide:nth-child(1) .tagline {
+            font-size: 24px;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+
+        /* Slide 2 - X7 */
+        .slide:nth-child(2) .slide-content {
+            align-items: flex-end;
+            justify-content: center;
+            padding-right: 80px;
+        }
+
+        .slide:nth-child(2) .model-name {
+            font-size: 100px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .slide:nth-child(2) .tagline {
+            font-size: 36px;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        /* Buttons */
+        .cta-buttons {
+            display: flex;
+            width: 100%;
+            max-width: 400px;
+            /* Match the max-width of model-text */
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+
+        .cta-button {
+            padding: 12px 0;
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            border-radius: 30px;
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            transition: background-color 0.3s, color 0.3s;
+            width: 48%;
+            /* Use percentage to ensure buttons take almost half the width */
+            text-align: center;
+            /* Center the text in each button */
+        }
+
+        .cta-button:hover {
+            background-color: white;
+            color: black;
+        }
+
+        /* Slider navigation */
+        .slider-nav {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .nav-indicator {
+            width: 60px;
+            height: 2px;
+            background-color: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .nav-indicator.active {
+            background-color: white;
+        }
+
+        /* Animations */
+        @keyframes slideAnimation {
+
+            0%,
+            19% {
+                transform: translateX(0%);
+            }
+
+            20%,
+            39% {
+                transform: translateX(-20%);
+            }
+
+            40%,
+            59% {
+                transform: translateX(-40%);
+            }
+
+            60%,
+            79% {
+                transform: translateX(-60%);
+            }
+
+            80%,
+            99% {
+                transform: translateX(-80%);
+            }
+
+            100% {
+                transform: translateX(0%);
+            }
+        }
+
+        /* Modified zoom animation to only zoom in */
+        @keyframes zoomIn {
+            0% {
+                transform: scale(1);
+            }
+
+            100% {
+                transform: scale(1.05);
+            }
+        }
+
+
+        /* Active slide indicator animation */
+        @keyframes navAnimation {
+
+            0%,
+            19% {
+                background-color: white;
+            }
+
+            20% {
+                background-color: rgba(255, 255, 255, 0.3);
+            }
+        }
+
+        .nav-indicator:nth-child(1) {
+            animation: navAnimation 25s infinite;
+        }
+
+        .nav-indicator:nth-child(2) {
+            animation: navAnimation 25s infinite 5s;
+        }
+
+        .nav-indicator:nth-child(3) {
+            animation: navAnimation 25s infinite 10s;
+        }
+
+        .nav-indicator:nth-child(4) {
+            animation: navAnimation 25s infinite 15s;
+        }
+
+        .nav-indicator:nth-child(5) {
+            animation: navAnimation 25s infinite 20s;
+        }
+
+       /* Add this to your existing CSS */
+@media (max-width: 768px) {
+    .slider-container {
+        height: 50vh; /* Reduce height on mobile to 50% of viewport height */
+    }
+    
+    .slide-content {
+        padding: 0 5%; /* Reduce padding on smaller screens */
+    }
+    
+    .model-text {
+        max-width: 250px; /* Make model text image smaller on mobile */
+    }
+    
+    .cta-buttons {
+        max-width: 250px; /* Match the new model-text max-width */
+    }
+    
+    .slide:nth-child(1) .model-name {
+        font-size: 60px; /* Smaller font size for mobile */
+    }
+    
+    .slide:nth-child(1) .tagline {
+        font-size: 18px; /* Smaller font size for mobile */
+    }
+    
+    .slide:nth-child(2) .model-name {
+        font-size: 50px; /* Smaller font size for mobile */
+    }
+    
+    .slide:nth-child(2) .tagline {
+        font-size: 22px; /* Smaller font size for mobile */
+    }
+    
+    .slide:nth-child(1) .slide-content,
+    .slide:nth-child(2) .slide-content {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+    </style>
+</head>
+
+<body>
+    <!-- Slider container -->
+    <div class="slider-container">
+        <div class="slides">
+            <!-- Slide 1 - XS5 II -->
+            <div class="slide">
+                <div class="slide-image"></div>
+
+            </div>
+
+            <!-- Slide 2 - X7 -->
+            <div class="slide">
+                <div class="slide-image"></div>
+                <div class="slide-content">
+                    <img src="images/texts/x7.png" alt="Model 5" class="model-text">
+                    <div class="cta-buttons">
+                        <a href="#" class="cta-button">Test Drive</a>
+                        <a href="#" class="cta-button">View VR</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3 - Placeholder -->
+            <div class="slide">
+                <div class="slide-image"></div>
+                <div class="slide-content">
+                    <img src="images/texts/bj30.png" alt="Model 5" class="model-text">
+                    <div class="cta-buttons">
+                        <a href="#" class="cta-button">Learn More</a>
+                        <a href="#" class="cta-button">View VR</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 4 - Placeholder -->
+            <div class="slide">
+                <div class="slide-image"></div>
+                <div class="slide-content">
+                    <img src="images/texts/bj60.png" alt="Model 5" class="model-text">
+                    <div class="cta-buttons">
+                        <a href="#" class="cta-button">Test Drive</a>
+                        <a href="#" class="cta-button">View VR</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 5 - Placeholder -->
+            <div class="slide">
+                <div class="slide-image"></div>
+                <div class="slide-content">
+                    <img src="images/texts/bj30.png" alt="Model 5" class="model-text">
+                    <div class="cta-buttons">
+                        <a href="#" class="cta-button">Learn More</a>
+                        <a href="#" class="cta-button">View VR</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slider navigation -->
+        <div class="slider-nav">
+            <div class="nav-indicator"></div>
+            <div class="nav-indicator"></div>
+            <div class="nav-indicator"></div>
+            <div class="nav-indicator"></div>
+            <div class="nav-indicator"></div>
+        </div>
+    </div>
+
+    <!-- Section 2 Showcase -->
+    <section class="showcase">
+        <div class="showcase-content">
+        </div>
+    </section>
+    <section class="cap-beauty">
+        <div class="cap-beauty-content">
+        </div>
+    </section>
+    <!-- Section 2 - News -->
+    <section class="section-3">
+        <div class="section-3-content">
+        </div>
+    </section>
+
+    <!-- Section 3 Capital Beauty Redefined -->
+ 
+    <!-- Section 4 News Section -->
+    <section class="news">
+        <div class="news-content">
+        </div>
+    </section>
+
+
+    <script>
+        // fetch explore-section.html and insert it into the showcase-content div
+        fetch('explore-section.html')
+    .then(response => response.text())
+    .then(data => {
+        // Insert the HTML into the DOM
+        document.querySelector('.showcase-content').innerHTML = data;
+
+        // Extract and execute scripts
+        const scriptElements = document.querySelector('.showcase-content').querySelectorAll('script');
+        scriptElements.forEach(script => {
+            const newScript = document.createElement('script');
+            if (script.src) {
+                // If the script has a src attribute, load it
+                newScript.src = script.src;
+            } else {
+                // If it's inline script, execute it directly
+                newScript.textContent = script.textContent;
+            }
+            document.body.appendChild(newScript);
+        });
+    })
+    .catch(error => {
+        console.error('Error fetching explore-section.html:', error);
+    });        // fetch cap-section.html
+        fetch('cap-section.html')
+            .then(response => response.text())
+            .then(data => {
+                document.querySelector('.cap-beauty-content').innerHTML = data;
+            })
+        fetch('news-section.html')
+            .then(response => response.text())
+            .then(data => {
+                document.querySelector('.news-content').innerHTML = data;
+            })
+        fetch('section-3.html')
+            .then(response => response.text())
+            .then(data => {
+                document.querySelector('.section-3-content').innerHTML = data;
+            })
+
+    </script>
+
+</body>
+
+</html>

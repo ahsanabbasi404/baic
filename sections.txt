@@ -1,0 +1,9 @@
+Navbar
+Right side icons
+
+Hero section
+Car Showing section
+Car Item
+Baic Cards
+Baic in the world
+News feed
