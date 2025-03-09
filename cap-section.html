@@ -29,33 +29,34 @@
         }
         
         .hero-content {
-            width: 50%;
-            padding-left: 8%;
+            position: absolute;
+            top: 5%;
+            left: 5%;
             z-index: 2;
         }
         
         .hero-title {
-            font-size: 54px;
-            font-weight: 800;
-            line-height: 1.1;
-            color: #222;
-            margin-bottom: 20px;
-            text-transform: uppercase;
+            color: #181413;
+    font-size: 35px;
+    font-weight: 600;
+    line-height: 1.2;
+    max-width: 100%;
+            padding-bottom: 20px;
         }
         
         .hero-subtitle {
             font-size: 16px;
-            color: #666;
+            font-weight: 400;
+            color: #a0a0a0;
             margin-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
         }
         
         .hero-description {
             font-size: 16px;
-            color: #666;
-            margin-bottom: 30px;
-            max-width: 80%;
+            font-weight: 400;
+            color: #a0a0a0;
+            letter-spacing: 0.5px;
         }
         
         .hero-image-container {
@@ -81,7 +82,7 @@
             }
             
             .hero-title {
-                font-size: 48px;
+                font-size: 40px;
             }
         }
         
@@ -96,7 +97,7 @@
                 font-size: 36px;
             }
             
-            .hero-description {
+            .hero-subtitle, .hero-description {
                 max-width: 100%;
                 margin-left: auto;
                 margin-right: auto;
@@ -105,7 +106,7 @@
         
         @media (max-width: 480px) {
             .hero-title {
-                font-size: 32px;
+                font-size: 28px;
             }
             
             .hero-subtitle, .hero-description {
@@ -117,12 +118,11 @@
 <body>
     <section class="hero-section">
         <div class="hero-content">
-            <h1 class="hero-title">Capital Beauty<br>Redefined</h1>
-            <p class="hero-subtitle">Creating a joyful lifestyle for users</p>
-            <p class="hero-description">It is BAIC's persistent pursuit</p>
+            <h3 class="hero-title">CAPITAL BEAUTY<br>REDEFINED</h3>
+            <p class="hero-subtitle">CREATING A JOYFUL LIFESTYLE FOR USERS</p>
+            <p class="hero-description">IT IS BAIC'S PERSISTENT PURSUIT</p>
         </div>
         <div class="hero-image-container">
-            <!-- The image will be placed by you as mentioned -->
             <img src="images/hd/capital.jpg" alt="BAIC Car with cityscape" class="hero-image">
         </div>
     </section>
